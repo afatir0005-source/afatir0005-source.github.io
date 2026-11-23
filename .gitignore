@@ -1,0 +1,7 @@
+# old versions, not part of the site
+archive/
+
+# local scratch
+__lbtest.html
+Thumbs.db
+.DS_Store

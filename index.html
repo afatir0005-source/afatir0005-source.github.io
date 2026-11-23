@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Abdul Fatir · QA Automation & Computer Vision</title>
+  <meta name="description" content="Abdul Fatir, Product Engineer (QA Automation) at OneScreen Solutions, Islamabad. Test automation platforms, Selenium, Python, YOLO and PyTorch. Work, projects and what I build.">
+  <meta name="theme-color" content="#121417">
+  <meta property="og:title" content="Abdul Fatir · QA Automation & Computer Vision">
+  <meta property="og:description" content="I build test automation platforms, Selenium suites and vision models for the edge.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121417'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23a9d6ea'%3EAF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=29">
+</head>
+<body>
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
+    <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" type="button" aria-label="Previous photo">&larr;</button>
+    <figure class="lightbox__fig"><img id="lightbox-img" alt=""><figcaption class="mono" id="lightbox-cap"></figcaption></figure>
+    <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" type="button" aria-label="Next photo">&rarr;</button>
+  </div>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__name">Abdul Fatir</div>
+    <div class="loader__count" id="loader-count">0</div>
+    <div class="loader__line">Loading the cases the rig runs on.</div>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__dot"><svg viewBox="0 0 24 24"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></i><i class="cursor__ring"><span class="cursor__label" id="cursor-label">Drag</span></i></div>
+
+  <a class="skip" href="#about">Skip to content</a>
+
+  <header class="bar">
+    <div class="bar__left"><a class="bar__name" href="#top">Abdul Fatir</a></div>
+    <div class="bar__right">
+      <span class="bar__meta">Portfolio, <span id="bar-year">2026</span></span>
+      <button class="chip" id="mode-toggle" type="button" aria-pressed="false" title="Switch between dark and light">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor"/><path d="M6 1.5v9A4.5 4.5 0 0 0 6 1.5z" fill="currentColor"/></svg>
+        <span id="mode-label">Light mode</span>
+      </button>
+      <button class="chip" id="menu-toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav class="menu" id="menu" hidden>
+        <a href="#about">About</a>
+        <a href="#experience">Work experience</a>
+        <a href="#internships">Internships</a>
+        <a href="#toolbelt">Skills &amp; software</a>
+        <a href="#education">Education</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#offduty">Off-duty</a>
+        <a href="#work">All projects</a>
+        <a href="#contact">Send a message</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <svg class="road" id="road" aria-hidden="true">
+      <path class="road__ghost" id="road-ghost"></path>
+      <path class="road__driven" id="road-driven"></path>
+    </svg>
+    <div class="car" id="car" aria-hidden="true">
+      <svg viewBox="0 0 40 64">
+        <path class="car__beam" d="M9 58 L2 88 H16 Z"/><path class="car__beam" d="M31 58 L24 88 H38 Z"/>
+        <rect class="car__wheel" x="1" y="10" width="7" height="13" rx="2"/><rect class="car__wheel" x="32" y="10" width="7" height="13" rx="2"/>
+        <rect class="car__wheel" x="1" y="42" width="7" height="13" rx="2"/><rect class="car__wheel" x="32" y="42" width="7" height="13" rx="2"/>
+        <rect class="car__body" x="5" y="4" width="30" height="56" rx="8"/>
+        <rect class="car__glass" x="10" y="9" width="20" height="9" rx="2"/><rect class="car__roof" x="10" y="21" width="20" height="18" rx="2"/>
+        <rect class="car__glass" x="9" y="42" width="22" height="10" rx="2"/>
+        <circle class="car__cam" cx="20" cy="30" r="3.5"/><circle class="car__lens" cx="20" cy="30" r="1.4"/>
+        <rect class="car__head" x="8" y="57" width="6" height="2.5" rx="1"/><rect class="car__head" x="26" y="57" width="6" height="2.5" rx="1"/>
+        <rect class="car__tail" x="8" y="4.5" width="6" height="2.5" rx="1"/><rect class="car__tail" x="26" y="4.5" width="6" height="2.5" rx="1"/>
+      </svg>
+    </div>
+
+    <!-- 1 · name, date, role -->
+    <section class="hero" id="hero">
+      <div class="hero__namerow">
+        <h1 class="name" id="name" aria-label="Abdul Fatir"><span class="name__word" data-split="Abdul"></span><span class="name__word name__last" data-split="Fatir"></span></h1>
+        <p class="hero__role hero__piece" style="--d:.05s"><strong>Product Engineer</strong><span>at <a href="https://www.onescreensolutions.com" target="_blank" rel="noopener">OneScreen</a></span></p>
+      </div>
+      <div class="hero__row">
+        <p class="hero__build hero__piece" style="--d:.18s">I build <span class="swap" id="swap"><span class="swap__item">test automation platforms</span></span></p>
+        <div class="stage hero__piece" style="--d:.3s">
+          <div class="flipclock" id="flipclock" role="img" aria-label="Current time in Islamabad">
+            <div class="flipclock__tiles" id="flipclock-tiles"></div>
+            <span class="flipclock__label mono"><span id="today">—</span></span>
+            <span class="flipclock__label flipclock__label--sub mono">Islamabad · UTC+5</span>
+          </div>
+          <div class="device" role="img" aria-label="Pocket test console showing a firmware run">
+            <div class="lcd mono">
+              <div class="lcd__row"><span>ONESCREEN QA</span><span id="lcd-build">BUILD OK</span></div>
+              <div class="lcd__big" id="lcd-count">000/512</div>
+              <div class="lcd__row lcd__row--case"><span class="flaps flaps--lcd" id="lcd-case" aria-live="off"></span><span id="lcd-state">RUN</span></div>
+              <div class="lcd__bar"><i id="lcd-fill"></i></div>
+            </div>
+            <div class="device__foot"><span class="device__brand mono">fatir-rig v2</span><span class="device__leds" aria-hidden="true"><i class="on"></i><i></i><i></i></span></div>
+          </div>
+          <p class="caption">the rig that runs the 512 cases while I sleep</p>
+        </div>
+      </div>
+      <p class="hero__links hero__piece" style="--d:.42s">
+        <a href="#experience" class="btn btn--ghost">Work</a>
+        <a href="#work" class="btn btn--ghost">Projects</a>
+        <a href="#contact" class="btn">Write to me</a>
+        <a href="#" id="resume-link" class="btn btn--ghost" hidden download>Resume (PDF)</a>
+      </p>
+    </section>
+
+    <div class="marquee" aria-hidden="true"><div class="marquee__track" id="marquee"></div></div>
+
+    <!-- 2 · about + gym questionnaire -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="about">
+        <div class="about__text">
+          <h2 class="section-title" id="about-title">About</h2>
+          <p class="about__lead" id="about-lead"></p>
+          <div class="about__paras" id="about-paras"></div>
+        </div>
+        <aside class="about__side">
+          <figure class="polaroid">
+            <div class="polaroid__img"><img id="avatar-img" alt="Abdul Fatir" hidden><span class="polaroid__mono" id="avatar-mono" aria-hidden="true">AF</span></div>
+            <figcaption>Islamabad, after the night build.</figcaption>
+          </figure>
+          <div class="quiz" id="quiz">
+            <div class="quiz__viewport" id="quiz-viewport">
+              <div class="quiz__track" id="quiz-track"></div>
+            </div>
+            <div class="quiz__nav" id="quiz-nav">
+              <div class="quiz__dots" id="quiz-dots" role="tablist" aria-label="Questionnaire pages"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <ul class="odometer" id="stats" aria-label="Numbers so far"></ul>
+    </section>
+
+    <!-- 3 · work experience tabs: short text + a ring of cards, all in one box -->
+    <section class="section" id="experience" aria-labelledby="exp-title">
+      <h2 class="section-title" id="exp-title">Work experience</h2>
+      <div class="tabs" role="tablist" aria-label="Places I have worked" id="tabs"><span class="tabs__ink" id="tabs-ink"></span></div>
+      <div class="tabpanel" id="tabpanel"></div>
+    </section>
+
+    <!-- 4 · internships, smaller -->
+    <section class="section" id="internships" aria-labelledby="int-title">
+      <h2 class="section-title section-title--sm" id="int-title">Internships</h2>
+      <div class="interns" id="interns"></div>
+    </section>
+
+    <section class="cta reveal" id="cta">
+      <div>
+        <p class="eyebrow mono">open to QA automation · CV / DL · Python roles</p>
+        <h2>Have a product to break or a model to ship?</h2>
+      </div>
+      <a href="#contact" class="btn btn--lg">Send me a message</a>
+    </section>
+
+    <!-- toolbelt -->
+    <section class="section" id="toolbelt" aria-labelledby="toolbelt-title">
+      <h2 class="section-title" id="toolbelt-title">Skills &amp; software</h2>
+      <p class="lede-sm">Grouped by the job they do.</p>
+      <div class="shelves" id="shelves"></div>
+    </section>
+
+    <!-- education -->
+    <section class="section" id="education" aria-labelledby="edu-title">
+      <h2 class="section-title" id="edu-title">Education</h2>
+      <div class="edu" id="edu"></div>
+    </section>
+
+    <!-- certificates -->
+    <section class="section" id="certificates" aria-labelledby="cert-title">
+      <h2 class="section-title" id="cert-title">Certificates</h2>
+      <div class="certs" id="certs"></div>
+    </section>
+
+    <!-- hobbies -->
+    <section class="section" id="offduty" aria-labelledby="offduty-title">
+      <h2 class="section-title" id="offduty-title">Off-duty</h2>
+      <p class="lede-sm">When the suite is green.</p>
+      <div class="hobbies" id="hobbies"></div>
+    </section>
+
+    <!-- all projects: big stacked cards, each settles under the next as you scroll -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <h2 class="section-title section-title--xl" id="work-title">All projects</h2>
+      <div class="stack" id="stack" data-drag="Drag" tabindex="0" aria-label="Project cards"></div>
+    </section>
+
+    <!-- contact -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Send a message</h2>
+      <div class="contact">
+        <div class="contact__intro">
+          <p class="lede-sm">Leave a note and it lands in my inbox. I answer every real one, usually within a day. Recruiters, founders and fellow engineers all welcome.</p>
+          <ul class="contact__lines">
+            <li><span class="k mono">email</span> <span id="contact-email">afatir0005@gmail.com</span> <button class="chip chip--xs" id="copy-email" type="button">copy</button></li>
+            <li><span class="k mono">linkedin</span> <a id="contact-linkedin" href="https://linkedin.com/in/abdfatir" target="_blank" rel="noopener">linkedin.com/in/abdfatir</a></li>
+            <li><span class="k mono">base</span> <span id="contact-location">Islamabad, Pakistan</span> · UTC+5</li>
+          </ul>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <div class="field"><label for="f-name" class="mono">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name"></div>
+          <div class="field"><label for="f-email" class="mono">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com"></div>
+          <div class="field"><label for="f-message" class="mono">Message</label><textarea id="f-message" name="message" rows="5" required placeholder="The role, the project, or the bug that keeps you up at night."></textarea></div>
+          <input type="text" name="_gotcha" id="f-gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <div class="form__foot">
+            <button type="submit" class="btn" id="f-submit"><span class="btn__label">Send message</span><span class="btn__spin" aria-hidden="true"></span></button>
+            <p class="status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="thanks" id="thanks" aria-label="Thank you">
+      <p class="mono eyebrow">end of the road</p>
+      <h2 class="thanks__title"><span data-split="THANK YOU !"></span></h2>
+      <p class="thanks__line">For reading this far. The car is parked. <a href="#contact">Write to me</a> or <a href="#top">drive back up ↑</a>.</p>
+    </section>
+
+    <footer class="foot">
+      <span>© <span id="year"></span> Abdul Fatir · Islamabad</span>
+      <span>hand-built, no frameworks, no trackers</span>
+      <a href="#top">back to the top ↑</a>
+    </footer>
+  </main>
+
+  <script src="js/config.js?v=29"></script>
+  <script src="js/data.js?v=29"></script>
+  <script src="js/shared.js?v=29"></script>
+  <script src="js/main.js?v=29"></script>
+</body>
+</html>

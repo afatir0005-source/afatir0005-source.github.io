@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Project · Abdul Fatir</title>
+  <meta name="description" content="Project details: problem, approach, outcome, screens and the skills it used.">
+  <meta name="theme-color" content="#121417">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121417'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23a9d6ea'%3EAF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="css/style.css?v=29">
+</head>
+<body class="is-project">
+  <div class="wipe" id="wipe" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__dot"><svg viewBox="0 0 24 24"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></i><i class="cursor__ring"><span class="cursor__label" id="cursor-label">Drag</span></i></div>
+
+  <header class="bar">
+    <div class="bar__left"><a class="bar__name" href="index.html">Abdul Fatir</a></div>
+    <div class="bar__right">
+      <a class="chip" href="index.html#work" id="back-link">← All work</a>
+      <button class="chip" id="mode-toggle" type="button" aria-pressed="false" title="Switch between dark and light">
+        <svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.5" fill="none" stroke="currentColor"/><path d="M6 1.5v9A4.5 4.5 0 0 0 6 1.5z" fill="currentColor"/></svg>
+        <span id="mode-label">Light mode</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="page page--project" id="project">
+    <p class="mono eyebrow" id="p-crumb">project</p>
+    <header class="phead">
+      <p class="phead__dom mono" id="p-dom"></p>
+      <h1 class="phead__title" id="p-title">Loading…</h1>
+      <p class="phead__meta" id="p-meta"></p>
+      <p class="phead__summary" id="p-summary"></p>
+    </header>
+
+    <figure class="phero" id="p-hero"></figure>
+
+    <section class="pipeline" id="p-pipeline" aria-label="How it works"></section>
+
+    <section class="pao">
+      <div class="pao__col"><h2>Problem</h2><p id="p-problem"></p></div>
+      <div class="pao__col"><h2>Approach</h2><p id="p-approach"></p></div>
+      <div class="pao__col"><h2>Outcome</h2><p id="p-outcome"></p></div>
+    </section>
+
+    <section class="screens" aria-labelledby="screens-title">
+      <h2 class="section-title" id="screens-title">Screens</h2>
+      <div class="screens__grid" id="p-screens"></div>
+    </section>
+
+    <section class="pdetails">
+      <div class="pdetails__col">
+        <h2 class="section-title">Details</h2>
+        <ul class="pdetails__list" id="p-bullets"></ul>
+        <p class="muted pnda" id="p-nda" hidden>Client and company code stays with them. Described, not linked.</p>
+      </div>
+      <div class="pdetails__col">
+        <h2 class="section-title">Skills used</h2>
+        <ul class="skillset" id="p-stack"></ul>
+      </div>
+    </section>
+
+    <nav class="pnav" aria-label="Other projects">
+      <a id="p-prev" class="pnav__link" href="#"><span class="mono eyebrow">previous</span><strong></strong></a>
+      <a id="p-next" class="pnav__link pnav__link--next" href="#"><span class="mono eyebrow">next</span><strong></strong></a>
+    </nav>
+
+    <footer class="foot">
+      <span>© <span id="year"></span> Abdul Fatir · Islamabad</span>
+      <a href="index.html">back home</a>
+    </footer>
+  </main>
+
+  <script src="js/config.js?v=29"></script>
+  <script src="js/data.js?v=29"></script>
+  <script src="js/shared.js?v=29"></script>
+  <script src="js/project.js?v=29"></script>
+</body>
+</html>
