@@ -547,6 +547,112 @@ body.has-lightbox { overflow: hidden; }
 /* ───────── reveals ───────── */
 .reveal, .reveal-up { opacity: 0; transform: translateY(14px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in, .reveal-up.in, .no-js .reveal, .no-js .reveal-up { opacity: 1; transform: none; }
+
+/* ───────── phones (≤ 640px): one column, bigger touch targets, no road ───────── */
+@media (max-width: 640px) {
+  body { font-size: 16.5px; }
+  .page { padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); }
+  .bar { padding: .55rem max(14px, env(safe-area-inset-left, 0px)); gap: .5rem; }
+  .bar__right { gap: .4rem; }
+  .chip { padding: .36rem .65rem; font-size: .76rem; }
+  .section { padding-block: 3.2rem 0; }
+  .section-title { font-size: 2.15rem; margin-bottom: 1rem; }
+  .section-title--sm { font-size: 1.8rem; }
+  .section-title--xl { font-size: 2.6rem; }
+  .lede-sm { font-size: .98rem; margin-bottom: 1.4rem; }
+
+  /* the road and car need margins; on a phone there are none, so they stay off */
+  #road, #car, .road, .car { display: none !important; }
+
+  /* hero: name, role, what I build, buttons, then the clock and rig */
+  .hero { padding-top: 4.6rem; gap: .9rem; }
+  .hero__namerow { gap: .7rem; }
+  .name { font-size: clamp(3.6rem, 19.5vw, 5.4rem); line-height: .9; }
+  .hero__role { font-size: .95rem; }
+  .hero__row { display: contents; }
+  .hero__build { order: 2; font-size: 1.55rem; line-height: 1.2; margin-top: .3rem; }
+  .hero__links { order: 3; margin-top: .2rem; gap: .55rem; }
+  .btn { padding: .75rem 1.15rem; font-size: .95rem; }
+  .stage { order: 4; justify-self: center; width: 100%; max-width: 360px; margin-top: 1.2rem; }
+  .device { transform: none; width: 100%; }
+  .caption { text-align: center; }
+  .marquee { margin-top: 2.4rem; }
+
+  /* about: text, then a centred photo and the questionnaire */
+  .about { gap: 1.8rem; }
+  .about__lead { font-size: 1.35rem; line-height: 1.32; }
+  .about__paras { margin-top: 1rem; }
+  .about__side { justify-items: center; gap: 1.4rem; }
+  .polaroid { width: min(230px, 100%); transform: rotate(-1.5deg); }
+  .quiz { padding: 1rem 1rem .9rem; border-radius: 14px; }
+  .quiz__head h3 { font-size: 1.75rem; }
+  .quiz__head .muted { font-size: 1.1rem; }
+  .quiz__q { font-size: 1.2rem; padding: .6rem .7rem; grid-template-columns: 1.4rem 1fr auto; }
+  .quiz__a { font-size: 1.15rem; padding-left: 2.6rem; }
+  .odometer { margin-top: 2.2rem; gap: .9rem 1rem; padding-top: 1.2rem; }
+  .odometer b { font-size: 2rem; }
+
+  /* work experience */
+  .tab { padding: .6rem .75rem .7rem; font-size: .95rem; }
+  .exp { padding: 1.1rem 1rem; border-radius: 16px; gap: 1.2rem; }
+  .exp__org { font-size: 1.35rem; }
+  .skillset { gap: .4rem; }
+  .skillset li { font-size: .78rem; padding: .3rem .65rem; }
+  /* the card slider runs edge to edge inside the box so the side cards peek in */
+  .slider { height: 350px; margin-inline: -1rem; border-radius: 0; }
+  .slider__card { width: 224px; height: 300px; padding: 1rem 1rem 1.05rem; }
+  .ring__title { font-size: 1.2rem; }
+
+  /* internships */
+  .intern { padding: 1.1rem 1rem; }
+  .intern__photos { gap: .4rem; }
+
+  /* call to action */
+  .cta { margin-top: 3.2rem; padding: 1.4rem 1.2rem; gap: 1rem; }
+  .cta h2 { font-size: 1.6rem; }
+  .cta .btn { width: 100%; justify-content: center; }
+
+  /* skills, education, certificates, hobbies */
+  .shelf { padding: 1rem; }
+  .educard { padding: 1.1rem 1rem; }
+  .cert { padding: .9rem 1rem; }
+  .hobby { padding: 1rem; }
+
+  /* project deck: taller box, smaller art, so the title and the Open link always fit */
+  .stack { height: clamp(600px, 88vh, 780px); border-radius: 22px; }
+  .stackcard { top: 5%; height: 90%; border-radius: 18px; }
+  .stackcard__art { padding: .8rem .8rem 0; }
+  .stackcard__art .art { max-height: 24vh; }
+  .stackcard__body { padding: 1rem 1.05rem 1.1rem; gap: .6rem; }
+  .stackcard__body h3 { font-size: 1.5rem; }
+  .stackcard__summary { font-size: 1rem; }
+  .stackcard__meta { font-size: .85rem; }
+
+  /* contact */
+  .contact { gap: 1.6rem; }
+  .contact__form, .form { padding: 1.1rem 1rem; }
+  .field input, .field textarea { font-size: 16px; }   /* stops iOS zooming into fields */
+  .thanks { padding-block: 4rem 1.5rem; }
+  .thanks__title { font-size: clamp(2.4rem, 12vw, 4.6rem); letter-spacing: -.01em; }
+  .foot { margin-top: 3rem; font-size: .85rem; }
+
+  /* lightbox controls at thumb height */
+  .lightbox { padding: 12px; }
+  .lightbox__fig img { max-width: 94vw; max-height: 72vh; border-radius: 10px; }
+  .lightbox__close { top: max(10px, env(safe-area-inset-top, 0px)); right: 10px; }
+}
+@media (max-width: 400px) {
+  .name { font-size: clamp(3.2rem, 18.5vw, 4.6rem); }
+  .chip span { font-size: .72rem; }
+  .intern__photos { grid-template-columns: repeat(3, 1fr); }
+}
+/* touch devices: no hover lifts, no custom cursor, native scrolling on the card boxes */
+@media (hover: none) {
+  .cursor { display: none !important; }
+  .chip:hover, .btn:hover, .intern__zoom:hover img { transform: none; }
+  .slider, .stack { cursor: auto; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
