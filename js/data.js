@@ -86,11 +86,11 @@ window.SITE_DATA = {
       period: "Aug 2025 – Present",
       kind: "Full-time",
       what: "I own quality for interactive flat panels, OPS modules and the OneScreen Write app, and I write the automation that replaces manual regression.",
-      solves: "Every firmware build used to need hours of hand testing per device. Now a 500+ case platform runs it over ADB, and Selenium covers 40+ Write modules, so defects are caught before customers see them.",
+      solves: "Every firmware build used to need the better part of a day of hand testing. Now an automation suite drives the panels over adb and Appium and reports per module to a live dashboard, and Selenium covers 40+ Write modules, so defects are caught before customers see them.",
       skills: ["Python", "Selenium", "ADB", "Android firmware", "Regression testing", "Test planning", "Asana", "Excel"],
       groups: [
         { title: "What I did at OneScreen", cards: [
-          { title: "Automated Firmware Testing Platform", sub: "500+ cases over ADB", project: "firmware-platform" },
+          { title: "Panel Test Automation Suite & Dashboard", sub: "Node, Appium and adb, live dashboard", project: "firmware-platform" },
           { title: "OneScreen Write Automation", sub: "40+ modules in Selenium", project: "write-automation" },
           { title: "Release QA & ODM Coordination", sub: "CVTE, firmware, customers", kind: "Management" },
           { title: "Remote Testing Plans & SOPs", sub: "20+ runs with Logistics", kind: "Responsibility" },
@@ -175,15 +175,24 @@ window.SITE_DATA = {
   projects: [
     {
       id: "firmware-platform", featured: true, art: "window",
-      title: "Automated Firmware Testing Platform",
+      title: "Panel Test Automation Suite & Dashboard",
       tag: "OneScreen · 2025 – present", domain: "qa", org: "OneScreen Solutions", period: "Aug 2025 – Present", year: "2025",
-      summary: "A web-based test runner with 500+ cases that needs nothing but an ADB connection.",
-      problem: "Every firmware build for the interactive displays had to be checked by hand: boot, touch, HDMI, OPS, sleep and wake, dozens of app flows. It took hours per device and was never done the same way twice.",
-      approach: "I wrote a browser-based platform that talks to the display over ADB, runs a registry of test cases and reports per case with logs and screenshots. One suite covers every OneScreen interactive display and OPS device.",
-      outcome: "500+ cases run unattended per build. Coverage up 30%. 150+ bugs and major defects caught before release, with findings coordinated back to CVTE for the next firmware.",
-      pipeline: ["Build drops", "ADB connect", "Case registry", "Runner", "Logs + screens", "Report → Asana"],
-      bullets: ["Device discovery over ADB, with model-specific case sets for IFPs and OPS modules.", "Per-case timeouts, retries and flaky-case quarantine so one hang never blocks the run.", "Run history per firmware build, so a regression is traced to the build that introduced it."],
-      stack: ["Python", "ADB", "Android", "Web dashboard", "Regression testing"], images: [], confidential: true
+      summary: "An end-to-end automation framework for OneScreen Android panels, driven over adb and Appium, with a live dashboard and results written straight into the team's QA sheets.",
+      problem: "Regression on an interactive display is a long manual job: the Write whiteboard app, the side toolbar, annotation, account limits, firmware versions and every page of the Settings app, repeated for each firmware build. It took a tester the better part of a day, was never done quite the same way twice, and intermittent failures slipped through.",
+      approach: "I built a framework in Node.js that treats the panel as a black box, with no test hooks in the apps. A device driver over adb and UI Automator reads the live view hierarchy and drives taps, swipes, toggles and spinners by resource id, with human-paced input and a fast mode. Appium with the UiAutomator2 driver adds real multi-touch, so five-finger gestures mapped to Home and Recents are performed and verified rather than assumed. A sweep engine walks every control on every Settings page, with a do-not-press list for anything unsafe to automate. Results stream to a single-page dashboard served by Node, and into the team's Google Sheets checklists.",
+      outcome: "Nine Settings modules with 120+ positive and negative checks, plus whiteboard, toolbar and gesture coverage, run unattended per build and give engineers a pass or fail per module in minutes. The fast mode took the Settings suite from about 17 minutes to 13. Along the way the suite surfaced real product defects, including a default admin password, missing hotspot configuration fields and non-functional Bluetooth scanning, each with reproducible steps, and it keeps a shareable record of every run.",
+      pipeline: ["Firmware build", "adb / UI Automator", "Appium gestures", "Module suites", "Live dashboard", "Sheets + HTML report"],
+      bullets: [
+        "Device driver with human-paced input, a stop signal and a fast mode. Controls are found by resource id or text from the UI Automator XML dump, so the apps need no test hooks.",
+        "Multi-touch through Appium 3 and WebdriverIO 9 W3C pointer actions, the only way to perform genuine five-finger gestures on the panel.",
+        "Dashboard served by plain Node http: live log following, start and stop control, per-module progress chips, session resume after a reload, and export to HTML reports.",
+        "Google Sheets API writes results into the QA checklist workbooks, merged cells included. Drive and Gmail APIs confirm that cloud uploads and shared emails actually arrived, instead of trusting the panel's own UI.",
+        "jsQR decodes QR codes shown on screen. HTML reports list positive and negative cases with feedback and automation notes.",
+        "A catalogue of what cannot be automated and why, with timing budgets per module, so the team knows exactly what still needs a human.",
+        "Real-device problems solved on the way: automation-slot conflicts between UI Automator and Appium, Git Bash path mangling, placeholder views and flaky list loads.",
+        "Security judgement: the weak admin password was written up as a finding, and privileged unlocks were kept out of the autonomous path."
+      ],
+      stack: ["Node.js", "Appium", "WebdriverIO", "adb", "UI Automator", "Google Sheets API", "Python"], images: [], confidential: true
     },
     {
       id: "write-automation", featured: true, art: "window",
